@@ -180,17 +180,17 @@
                     0.82, 47.84, 1.026, 40.005, 0.9938, 41.23];
 
                 const interval = setInterval(() => {
-                    if (interValTime == 350) {
+                    if (interValTime == 350) { 
                         document.querySelector('.loader').style.display = 'flex';
                         document.getElementsByClassName('row1')[0].style.display = 'none'
                         document.getElementsByClassName('row2')[0].style.display = 'none'
 
                     }
                     if (interValTime > 500) {
-
                         document.querySelector('.loader').style.display = 'none';
                         document.getElementsByClassName('row1')[0].style.display = 'flex'
                         document.getElementsByClassName('row2')[0].style.display = 'flex'
+                        shiftRows()
                         clearInterval(interval);
                     }
 
@@ -210,6 +210,7 @@
                 }, interValTime)
             }
 
+            function shiftRows(){
             const row1 = document.getElementById('row1');
             const row2 = document.getElementById('row2');
 
@@ -218,6 +219,8 @@
 
             row1.style.transform = `translateX(${scrollTop * scrollSpeed}px)`;
             row2.style.transform = `translateX(-${scrollTop * scrollSpeed}px)`;
+            }
+            
         });
     </script>
 </body>
