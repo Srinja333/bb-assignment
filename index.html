@@ -142,7 +142,7 @@
         window.addEventListener('scroll', function () {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-            let interValTime = 250;
+            let interValTime = 350;
 
             const scrollThreshold = 50;
 
@@ -154,34 +154,54 @@
                 let index = 0;
 
 
-                let v3 = [1.87, 7.673, 1.834, 9.29, 1, 41.136, 0.82, 47.84, 1.026, 40.005, 0.9938, 41.23];
+             
 
-                let v1 = [1.5, 6.738, 0.845, 38.83, 0.2864, 65.60, 0.94, 33.89, 1.006, 30.706, 0.998, 31.067];
+                let v1 = [1.5, 6.738, 0.845, 38.83,
+                
+                0.107, 74,//4
 
-                let v2 = [0.998, 7.904, 0.778, 23.81, 0.107, 71.67, 1.107, 0.73, 0.99, 8.79, 1.002, 7.814];
+                0.2864, 65.60,
+                
+                1.445, 9.99,//8
 
+                0.94, 33.89, 1.006, 30.706, 0.998, 31.067];
 
+                let v2 = [0.998, 7.904, 0.778, 23.81, 
+                
+                0.2864, 59, //4
+                
+                0.107, 71.67, 
+                
+                0.26,60.5,//8
+
+                1.107, 0.73, 0.99, 8.79, 1.002, 7.814];
+
+                let v3 = [1.614, 17.673, 1.834, 9.29,
+                
+                1.2, 33.5, //4
+
+                1, 41.136, 
+                
+                0.1, 75.60, //8
+
+                0.82, 47.84, 1.026, 40.005, 0.9938, 41.23];
                 const interval = setInterval(() => {
 
-                    // if (interValTime > 500) {
+                    if (interValTime > 500) {
 
-                    //     document.querySelector('.loader').style.display = 'none';
-                    //     document.getElementsByClassName('row1')[0].style.display = 'flex'
-                    //     document.getElementsByClassName('row2')[0].style.display = 'flex'
-                    //     clearInterval(interval);
-                    // }
+                        document.querySelector('.loader').style.display = 'none';
+                        document.getElementsByClassName('row1')[0].style.display = 'flex'
+                        document.getElementsByClassName('row2')[0].style.display = 'flex'
+                        clearInterval(interval);
+                    }
 
                     document.getElementsByClassName('ld-col-3')[0].style.transform = `matrix(1,0,0,${v3[index]},53,${v3[index + 1]})`
                     document.getElementsByClassName('ld-col-1')[0].style.transform = `matrix(1,0,0,${v1[index]},11,${v1[index + 1]})`
                     document.getElementsByClassName('ld-col-2')[0].style.transform = `matrix(1,0,0,${v2[index]},32,${v2[index + 1]})`
 
-                    // document.getElementsByClassName('ld-col-3')[0].style.transform = `matrix(1,0,0,${v3[index]},53,${v3[index + 1]})`
-                    // document.getElementsByClassName('ld-col-1')[0].style.transform = `matrix(1,0,0,${v1[index]},11,${v1[index + 1]})`
-                    // document.getElementsByClassName('ld-col-2')[0].style.transform = `matrix(1,0,0,${v2[index]},32,${v2[index + 1]})`
-
                     index = index + 2;
                     interValTime = interValTime + 5;
-                    if (index == 12) {
+                    if (index == 16) {
                         index = 0;
 
                     }
